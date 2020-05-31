@@ -3,6 +3,9 @@ using UnityEngine.InputSystem;
 
 public class PlayerScript : MonoBehaviour
 {
+    private const float VerticalBoundary = 0.85f;
+    private const float AppliedVelocity = 0.003f;
+    
     private Vector3 _currentVelocity = Vector3.zero;
     public void OnMove(InputAction.CallbackContext context)
     {
@@ -19,6 +22,11 @@ public class PlayerScript : MonoBehaviour
 
     private void Update()
     {
-        transform.position += _currentVelocity * 0.003f;
+        float currentY = transform.position.y;
+        if ((currentY > -VerticalBoundary && _currentVelocity.y < 0) 
+            || (currentY < VerticalBoundary && _currentVelocity.y > 0))
+        {
+            transform.position += _currentVelocity * AppliedVelocity;
+        }
     }
 }
