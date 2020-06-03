@@ -3,6 +3,8 @@ using UnityEngine.InputSystem;
 
 public class PlayerScript : MonoBehaviour
 {
+    public ReviewScript reviewLogic;
+    
     private const float VerticalBoundary = 0.85f;
     private const float AppliedVelocity = 0.003f;
     
@@ -16,6 +18,14 @@ public class PlayerScript : MonoBehaviour
         else
         {
             _currentVelocity = Vector3.zero;
+        }
+    }
+
+    private void OnCollisionEnter2D(Collision2D other)
+    {
+        if (other.gameObject.tag.Equals("Ball"))
+        {
+            reviewLogic.NextItem();
         }
     }
 
