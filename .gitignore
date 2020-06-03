@@ -5,3 +5,4 @@
 /Assets/Plugins
 *.csproj*
 *.sln*
+/Build
