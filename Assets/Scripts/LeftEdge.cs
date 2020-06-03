@@ -9,7 +9,7 @@ public class LeftEdge : MonoBehaviour
     {
         if (other.gameObject.tag.Equals("Ball"))
         {
-            reviewScript.Restart();
+            reviewScript.Lose();
         }
     }
 }

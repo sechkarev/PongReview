@@ -926,7 +926,18 @@ MonoBehaviour:
     m_ActionId: edd3fc90-d836-4efa-99b3-69f78780c4df
     m_ActionName: Player/Move[/Keyboard/w,/Keyboard/upArrow,/Keyboard/s,/Keyboard/downArrow]
   - m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2012710884}
+        m_MethodName: OnLeftMouseClick
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_ActionId: 29e86f40-6913-4e2f-984d-e2461271611a
     m_ActionName: Player/Start Game[/Mouse/leftButton]
   m_NeverAutoSwitchControlSchemes: 0
@@ -1078,7 +1089,7 @@ GameObject:
   - component: {fileID: 2012710883}
   - component: {fileID: 2012710884}
   m_Layer: 0
-  m_Name: Text display logic
+  m_Name: Game logic
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1110,6 +1121,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2e47ed27ef3e7a64390d1895d2aeacb0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ball: {fileID: 1012813636}
   textWidget: {fileID: 2143543528}
 --- !u!1 &2021361907
 GameObject:

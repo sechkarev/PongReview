@@ -1,15 +1,20 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.UI;
 
 public class ReviewScript : MonoBehaviour
 {
+    public BallScript ball;
     public Text textWidget;
+
+    private GameState _gameState;
 
     private void Start()
     {
-        textWidget.text = _reviewItems[0];
+        _gameState = GameState.Initial;
+        textWidget.text = "Нажмите ЛКМ, чтобы начать игру.";
     }
 
     private readonly List<string> _reviewItems = new List<string>
@@ -32,19 +37,42 @@ public class ReviewScript : MonoBehaviour
 
     private int _currentItem;
 
+    public void OnLeftMouseClick(InputAction.CallbackContext context)
+    {
+        Debug.Log("LMB Clicked, context = " + context);
+        if (context.started)
+        {
+            if (_gameState == GameState.Initial || _gameState == GameState.Lost)
+            {
+                _gameState = GameState.Started;
+                ball.Launch();
+                NextItem();
+            }
+        }
+    }
+    
     public void NextItem()
     {
-        _currentItem++;
         if (_currentItem < _reviewItems.Count)
         {
             textWidget.text = _reviewItems[_currentItem];            
-        }
-        //todo: win state
+        }        
+        _currentItem++;
+
     }
 
-    public void Restart()
+    public void Lose()
     {
         _currentItem = 0;
-        textWidget.text = _reviewItems[0];
+        textWidget.text = "Вы проиграли. Нажмите ЛКМ, чтобы начать сначала.";
+        _gameState = GameState.Lost;
+        ball.Reset();
+    }
+    
+    private enum GameState
+    {
+        Initial,
+        Started,
+        Lost
     }
 }
