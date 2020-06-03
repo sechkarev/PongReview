@@ -8,7 +8,7 @@ public class BallScript : MonoBehaviour
 
     public void Launch()
     {
-        GetComponent<Rigidbody2D>().velocity = new Vector2(-Velocity, Velocity);
+        GetComponent<Rigidbody2D>().velocity = new Vector2(Velocity, Velocity);
     }
 
     public void Reset()
