@@ -86,7 +86,7 @@ public class ReviewScript : MonoBehaviour
 
     private List<string> GetCurrentItemCollection()
     {
-        return _testItems;
+        return _reviewItems;
     }
 
 private enum GameState
