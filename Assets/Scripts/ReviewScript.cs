@@ -13,8 +13,7 @@ public class ReviewScript : MonoBehaviour
 
     private void Start()
     {
-        _gameState = GameState.Initial;
-        textWidget.text = "Нажмите ЛКМ, чтобы начать игру.";
+        ResetGame(GameState.Initial, textWidget.text = "Нажмите ЛКМ, чтобы начать игру.");
     }
 
     private readonly List<string> _reviewItems = new List<string>
@@ -67,7 +66,7 @@ public class ReviewScript : MonoBehaviour
         }
         else
         {
-            ResetGame(GameState.Won,"Вы дочитали до конца. Поздравляю. Вот ваша оценка.");
+            ResetGame(GameState.Won,"Вы дочитали до конца. Поздравляю. Можете нажать ЛКМ и сыграть еще.");
         }
     }
 
