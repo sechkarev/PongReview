@@ -45,7 +45,6 @@ public class ReviewScript : MonoBehaviour
 
     public void OnLeftMouseClick(InputAction.CallbackContext context)
     {
-        Debug.Log("LMB Clicked, context = " + context);
         if (context.started)
         {
             if (_gameState != GameState.Started)
