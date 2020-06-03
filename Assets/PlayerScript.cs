@@ -6,7 +6,7 @@ public class PlayerScript : MonoBehaviour
     public ReviewScript reviewLogic;
     
     private const float VerticalBoundary = 0.85f;
-    private const float AppliedVelocity = 0.003f;
+    private const float AppliedVelocity = 0.01f;
     
     private Vector3 _currentVelocity = Vector3.zero;
     public void OnMove(InputAction.CallbackContext context)
