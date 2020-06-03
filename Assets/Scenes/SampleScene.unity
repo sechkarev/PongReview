@@ -388,6 +388,7 @@ GameObject:
   - component: {fileID: 1011921851}
   - component: {fileID: 1011921850}
   - component: {fileID: 1011921849}
+  - component: {fileID: 1011921852}
   m_Layer: 0
   m_Name: Left
   m_TagString: Untagged
@@ -482,6 +483,19 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1011921847}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1011921852
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1011921847}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dda9005b1583f3d41a968831424b1797, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  reviewScript: {fileID: 2012710884}
 --- !u!1 &1012813630
 GameObject:
   m_ObjectHideFlags: 0
@@ -1299,9 +1313,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\u0418\u0434\u0435\u044E Pong \u043F\u0440\u0438\u0434\u0443\u043C\u0430\u043B
-    \u041D\u043E\u043B\u0430\u043D \u0411\u0443\u0448\u043D\u0435\u043B\u043B, \u043E\u0441\u043D\u043E\u0432\u0430\u0442\u0435\u043B\u044C
-    Atari."
+  m_Text: Lorem ipsum
 --- !u!222 &2143543529
 CanvasRenderer:
   m_ObjectHideFlags: 0

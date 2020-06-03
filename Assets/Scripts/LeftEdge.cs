@@ -4,15 +4,12 @@ using UnityEngine;
 
 public class LeftEdge : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public ReviewScript reviewScript;
+    private void OnCollisionEnter2D(Collision2D other)
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        if (other.gameObject.tag.Equals("Ball"))
+        {
+            reviewScript.Restart();
+        }
     }
 }

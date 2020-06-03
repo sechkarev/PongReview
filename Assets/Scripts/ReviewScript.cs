@@ -6,9 +6,15 @@ using UnityEngine.UI;
 public class ReviewScript : MonoBehaviour
 {
     public Text textWidget;
-    
+
+    private void Start()
+    {
+        textWidget.text = _reviewItems[0];
+    }
+
     private readonly List<string> _reviewItems = new List<string>
     {
+        "Это обзор игры Pong.",
         "Идею Pong придумал Нолан Бушнелл, основатель Atari.",
         "Иногда Pong называют первой видеоигрой в истории, но это не так.",
         "Первая видеоигра вышла в 1952 году, за 20 лет до Pong. Pong – даже не первая игра Бушнелла.",
