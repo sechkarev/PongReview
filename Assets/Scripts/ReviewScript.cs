@@ -9,11 +9,14 @@ public class ReviewScript : MonoBehaviour
     public BallScript ball;
     public Text textWidget;
 
+    public Canvas textCanvas;
+    public Canvas textAndImageCanvas;
+
     private GameState _gameState;
 
     private void Start()
     {
-        ResetGame(GameState.Initial, textWidget.text = "Нажмите ЛКМ, чтобы начать игру.");
+        ResetGame(GameState.Initial, "Нажмите ЛКМ, чтобы начать игру.");
     }
 
     private readonly List<string> _reviewItems = new List<string>
@@ -23,10 +26,10 @@ public class ReviewScript : MonoBehaviour
         "Иногда Pong называют первой видеоигрой в истории, но это не так.",
         "Первая видеоигра вышла в 1952 году, за 20 лет до Pong. Pong – даже не первая игра Бушнелла.",
         "Первой игрой Бушнелла была Computer Space, клон Spacewar. Народу не зашло, и автоматы продавались плохо.",
-        "Саму игру разработал инженер Аллан Алькорн. Некоторые ее элементы – например, углы отражения мяча – придумал именно он.",
-        "В оригинальной Pong шарик со временем начинает двигаться быстрее. Здесь скорость постоянна, но каждый абзац текста длиннее предыдущего.",
+        "Саму игру разработал инженер Аллан Алькорн. Некоторые ее элементы – например, динамическую сложность – придумал именно он.",
+        "В оригинальной Pong шарик со временем начинает двигаться быстрее. Здесь его скорость постоянна, но каждый абзац текста длиннее предыдущего.",
         "Когда игра была готова, Бушнелл и Алькорн установили автомат в местном баре, с владельцем которого дружили. Бар назывался «Таверна Энди Кэппа».",
-        "Вот фотка Алькорна, кстати.",
+        "МЕСТО ДЛЯ ГРЯЗНОГО ХАКА",
         "Спустя несколько дней после установки автомат сломался. Приехав расследовать поломку, Алькорн обнаружил, что у автомата попросту переполнился монетоприемник.",
         "Так Atari поняла, что находится на правильном пути, и за два года продала больше 8000 автоматов. Автоматов с клонами Pong продалось еще больше: их клепали все кому не лень.",
         "Забавный факт: одним из первых сотрудников Atari был тогда еще никому не известный Стив Джобс. Будучи хиппи, он не мылся и страшно вонял, так что никто в компании не хотел с ним работать.",
@@ -61,6 +64,7 @@ public class ReviewScript : MonoBehaviour
         if (_currentItem < GetCurrentItemCollection().Count)
         {
             textWidget.text = GetCurrentItemCollection()[_currentItem];
+            ApplyDirtyHackToShowImage();
             _currentItem++;
         }
         else
@@ -73,6 +77,12 @@ public class ReviewScript : MonoBehaviour
     {
         ResetGame(GameState.Lost, "Вы проиграли. Нажмите ЛКМ, чтобы начать сначала.");
     }
+
+    private void ApplyDirtyHackToShowImage()
+    {
+        textCanvas.gameObject.SetActive(_currentItem != 8);
+        textAndImageCanvas.gameObject.SetActive(_currentItem == 8);
+    }
     
     private void ResetGame(GameState newGameState, string textOnScreen)
     {
@@ -80,6 +90,8 @@ public class ReviewScript : MonoBehaviour
         _gameState = newGameState;
         ball.Reset();
         _currentItem = 0;
+        textWidget.gameObject.SetActive(true);
+        textAndImageCanvas.gameObject.SetActive(false);
     }
 
     private List<string> GetCurrentItemCollection()
