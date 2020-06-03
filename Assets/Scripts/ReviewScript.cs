@@ -34,6 +34,13 @@ public class ReviewScript : MonoBehaviour
         "Atari выпустила множество вариаций на тему Pong, самая известная из которых – Breakout, Pong для одного игрока. Спустя десять лет компания Taito переизобрела эту игру под другим названием – Arkanoid.",
         "Первую версию Breakout разработал небезызвестный Стив Возняк – его попросил Джобс (и потом обманул, не выплатив часть гонорара). Схема Возняка была настолько оптимизированной, что никто в Atari не смог в ней разобраться.",
     };
+    
+    private readonly List<string> _testItems = new List<string>
+    {
+        "1",
+        "2",
+        "3"
+    };
 
     private int _currentItem;
 
@@ -42,7 +49,7 @@ public class ReviewScript : MonoBehaviour
         Debug.Log("LMB Clicked, context = " + context);
         if (context.started)
         {
-            if (_gameState == GameState.Initial || _gameState == GameState.Lost)
+            if (_gameState != GameState.Started)
             {
                 _gameState = GameState.Started;
                 ball.Launch();
@@ -50,29 +57,43 @@ public class ReviewScript : MonoBehaviour
             }
         }
     }
-    
-    public void NextItem()
-    {
-        if (_currentItem < _reviewItems.Count)
-        {
-            textWidget.text = _reviewItems[_currentItem];            
-        }        
-        _currentItem++;
 
+    public void NextItem()
+    {       
+        if (_currentItem < GetCurrentItemCollection().Count)
+        {
+            textWidget.text = GetCurrentItemCollection()[_currentItem];
+            _currentItem++;
+        }
+        else
+        {
+            ResetGame(GameState.Won,"Вы дочитали до конца. Поздравляю. Вот ваша оценка.");
+        }
     }
 
     public void Lose()
     {
-        _currentItem = 0;
-        textWidget.text = "Вы проиграли. Нажмите ЛКМ, чтобы начать сначала.";
-        _gameState = GameState.Lost;
-        ball.Reset();
+        ResetGame(GameState.Lost, "Вы проиграли. Нажмите ЛКМ, чтобы начать сначала.");
     }
     
-    private enum GameState
+    private void ResetGame(GameState newGameState, string textOnScreen)
+    {
+        textWidget.text = textOnScreen;
+        _gameState = newGameState;
+        ball.Reset();
+        _currentItem = 0;
+    }
+
+    private List<string> GetCurrentItemCollection()
+    {
+        return _testItems;
+    }
+
+private enum GameState
     {
         Initial,
         Started,
-        Lost
+        Lost,
+        Won
     }
 }
