@@ -740,6 +740,7 @@ GameObject:
   - component: {fileID: 1180867834}
   - component: {fileID: 1180867833}
   - component: {fileID: 1180867836}
+  - component: {fileID: 1180867837}
   m_Layer: 0
   m_Name: Top
   m_TagString: Untagged
@@ -846,6 +847,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 91ec0c78a567b884091ef4e7b54a10d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!50 &1180867837
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1180867831}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1 &1343706379
 GameObject:
   m_ObjectHideFlags: 0
@@ -1151,6 +1173,7 @@ GameObject:
   - component: {fileID: 1573019294}
   - component: {fileID: 1573019293}
   - component: {fileID: 1573019296}
+  - component: {fileID: 1573019297}
   m_Layer: 0
   m_Name: Bottom
   m_TagString: Untagged
@@ -1257,6 +1280,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 91ec0c78a567b884091ef4e7b54a10d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!50 &1573019297
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1573019291}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1 &1630134769
 GameObject:
   m_ObjectHideFlags: 0
@@ -1769,12 +1813,12 @@ PrefabInstance:
     - target: {fileID: 8226315043697660240, guid: 485fc6832eece334cb1161e69abfaca0,
         type: 3}
       propertyPath: m_Offset.x
-      value: 0.46650195
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8226315043697660240, guid: 485fc6832eece334cb1161e69abfaca0,
         type: 3}
       propertyPath: m_Size.x
-      value: 0.0669961
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 485fc6832eece334cb1161e69abfaca0, type: 3}
