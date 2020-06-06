@@ -6,11 +6,14 @@ using UnityEngine.UI;
 
 public class ReviewScript : MonoBehaviour
 {
+    
     public BallScript ball;
     public Text textWidget;
 
     public Canvas textCanvas;
     public Canvas textAndImageCanvas;
+    
+    private const string ImageHackString = "МЕСТО ДЛЯ ГРЯЗНОГО ХАКА";
 
     private GameState _gameState;
 
@@ -29,7 +32,7 @@ public class ReviewScript : MonoBehaviour
         "Саму игру разработал инженер Аллан Алькорн. Некоторые ее элементы – например, динамическую сложность – придумал именно он.",
         "В оригинальной Pong шарик со временем начинает двигаться быстрее. Здесь его скорость постоянна, но каждый абзац текста длиннее предыдущего.",
         "Когда игра была готова, Бушнелл и Алькорн установили автомат в местном баре, с владельцем которого дружили. Бар назывался «Таверна Энди Кэппа».",
-        "МЕСТО ДЛЯ ГРЯЗНОГО ХАКА",
+        ImageHackString,
         "Спустя несколько дней после установки автомат сломался. Приехав расследовать поломку, Алькорн обнаружил, что у автомата попросту переполнился монетоприемник.",
         "Так Atari поняла, что находится на правильном пути, и за два года продала больше 8000 автоматов. Автоматов с клонами Pong продалось еще больше: их клепали все кому не лень.",
         "Забавный факт: одним из первых сотрудников Atari был тогда еще никому не известный Стив Джобс. Будучи хиппи, он не мылся и страшно вонял, так что никто в компании не хотел с ним работать.",
@@ -81,8 +84,8 @@ public class ReviewScript : MonoBehaviour
 
     private void ApplyDirtyHackToShowImage()
     {
-        textCanvas.gameObject.SetActive(_currentItem != 8);
-        textAndImageCanvas.gameObject.SetActive(_currentItem == 8);
+        textCanvas.gameObject.SetActive(!_reviewItems[_currentItem].Equals(ImageHackString));
+        textAndImageCanvas.gameObject.SetActive(_reviewItems[_currentItem].Equals(ImageHackString));
     }
     
     private void ResetGame(GameState newGameState, string textOnScreen)

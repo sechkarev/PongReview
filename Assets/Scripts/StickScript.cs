@@ -8,6 +8,8 @@ public class StickScript : MonoBehaviour
     {
         if (other.gameObject.tag.Equals("Ball"))
         {
+            var contactPoint = other.GetContact(0);
+            Debug.Log(this + " contact point = " + contactPoint.point);
             var contactPointNormal = other.GetContact(0).normal;
             bool shouldRevertX = Mathf.Abs(contactPointNormal.x) >= Mathf.Abs(contactPointNormal.y);
             bool shouldRevertY = Mathf.Abs(contactPointNormal.x) <= Mathf.Abs(contactPointNormal.y);
