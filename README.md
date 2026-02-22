@@ -5,11 +5,9 @@ This game is esentially a text about the videogame Pong, and you have to play Po
 
 Give it a try [on Itch.io](https://ultra-v1olence.itch.io/ergodic-pong-review). So far, there is only a Russian version available.
 
-## Screenshots
+## Gameplay
 
-<img width="1440" height="900" alt="Screenshot 2026-02-22 at 20 59 18" src="https://github.com/user-attachments/assets/e995f881-a42d-4152-8ec8-738b74539f13" />
-<img width="1440" height="900" alt="Screenshot 2026-02-22 at 21 00 18" src="https://github.com/user-attachments/assets/333bd71d-b968-40a0-9f8d-043f25f5a272" />
-<img width="1440" height="900" alt="Screenshot 2026-02-22 at 20 59 40" src="https://github.com/user-attachments/assets/fdd41313-3feb-4f83-8467-62ed00e59c51" />
+https://github.com/user-attachments/assets/576f8814-9103-47b4-b68b-960ca9318a16
 
 ## Tech stack
 
